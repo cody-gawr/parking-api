@@ -1,0 +1,9 @@
+{
+    "preset": "psr12",
+    "indent": 4,
+    "rules": {
+        "no_unused_imports": true,
+        "single_line_throw": false,
+        "array_syntax": { "syntax": "short" }
+    }
+}
