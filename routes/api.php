@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ParkingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,11 +15,10 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
 
-    Route::prefix('parking')->group(function () {
-    // Route::get('closest', [ParkingController::class, 'closest']);
-    // Route::post('create', [ParkingController::class, 'create']);
-    // Route::put('update/{id}', [ParkingController::class, 'update']);
-    });
+    // Parking CRUD
+    Route::apiResource('parkings', ParkingController::class);
+    // Closest parking lookup
+    Route::get('parkings/closest', [ParkingController::class, 'closest']);
 });
 
 Route::fallback(function () {
