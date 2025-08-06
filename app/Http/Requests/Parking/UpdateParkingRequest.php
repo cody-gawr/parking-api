@@ -22,10 +22,10 @@ class UpdateParkingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'latitude' => 'required|numeric|between:-90,90',
-            'longitude' => 'required|numeric|between:-180,180'
+            'name' => 'sometimes|required|string|max:255',
+            'address' => 'sometimes|required|string|max:255',
+            'latitude' => 'sometimes|required|numeric|between:-90,90',
+            'longitude' => 'sometimes|required|numeric|between:-180,180'
         ];
     }
 }
