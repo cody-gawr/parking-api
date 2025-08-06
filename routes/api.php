@@ -19,10 +19,10 @@ Route::middleware([
             return $request->user();
         });
 
-        // Parking CRUD
-        Route::apiResource('parkings', ParkingController::class);
         // Closest parking lookup
         Route::get('parkings/closest', [ParkingController::class, 'closest']);
+        // Parking CRUD
+        Route::apiResource('parkings', ParkingController::class);
     });
 
     Route::fallback(function () {
