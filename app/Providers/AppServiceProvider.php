@@ -24,12 +24,12 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->bind(
             \App\Repositories\ParkingRepository::class,
-            fn($app) => new \App\Repositories\ParkingRepository(new \App\Models\Parking)
+            fn ($app) => new \App\Repositories\ParkingRepository(new \App\Models\Parking())
         );
 
         $this->app->bind(
             \App\Repositories\NotificationRepository::class,
-            fn($app) => new \App\Repositories\NotificationRepository()
+            fn ($app) => new \App\Repositories\NotificationRepository()
         );
     }
 

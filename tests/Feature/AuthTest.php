@@ -77,7 +77,7 @@ class AuthTest extends TestCase
     #[Test]
     public function authenticated_user_can_get_their_profile_and_logout()
     {
-                // 1) Create a user and issue a Sanctum token
+        // 1) Create a user and issue a Sanctum token
         $user = User::factory()->create();
         $token = $user->createToken('auth_token')->plainTextToken;
 

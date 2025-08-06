@@ -3,8 +3,6 @@
 namespace App\Http\Requests\Parking;
 
 use App\Http\Requests\BaseApiRequest;
-use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Http\Exceptions\HttpResponseException;
 
 class StoreParkingRequest extends BaseApiRequest
 {

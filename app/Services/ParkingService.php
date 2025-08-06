@@ -15,7 +15,8 @@ class ParkingService
     public function __construct(
         protected ParkingRepository $parkingRepo,
         protected NotificationRepository $notificationRepo
-    ) {}
+    ) {
+    }
 
     public function list(): Collection
     {

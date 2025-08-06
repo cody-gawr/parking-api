@@ -3,7 +3,6 @@
 namespace App\Exceptions;
 
 use Throwable;
-use Illuminate\Http\Request;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;

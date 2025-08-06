@@ -113,7 +113,8 @@ class ParkingTest extends TestCase
     public function find_closest_parking_within_500m()
     {
         // center point
-        $lat = 40.7128; $lng = -74.0060;
+        $lat = 40.7128;
+        $lng = -74.0060;
 
         // one within ~100m
         Parking::factory()->create([
@@ -135,7 +136,8 @@ class ParkingTest extends TestCase
     #[Test]
     public function closest_returns_404_and_sends_notification_when_no_parking_within_range()
     {
-        $lat = 0; $lng = 0; // unlikely to have any
+        $lat = 0;
+        $lng = 0; // unlikely to have any
 
         $this->getJson("/api/parkings/closest?latitude={$lat}&longitude={$lng}")
              ->assertStatus(404)

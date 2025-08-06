@@ -75,7 +75,7 @@ class ParkingController extends Controller
             $coords['longitude']
         );
 
-        if ( ! $parking) {
+        if (! $parking) {
             return response()->json([
                 'message' => 'No parking found within 500m'
             ], Response::HTTP_NOT_FOUND);

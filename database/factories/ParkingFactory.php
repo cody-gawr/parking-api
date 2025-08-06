@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ParkingFactory extends Factory
 {
-
     protected $model = Parking::class;
 
     /**
@@ -23,8 +22,8 @@ class ParkingFactory extends Factory
         return [
             'name'      => $this->faker->company . ' Parking',
             'address'   => $this->faker->streetAddress,
-            'latitude'  => $this->faker->latitude( -90, 90 ),
-            'longitude' => $this->faker->longitude( -180, 180 ),
+            'latitude'  => $this->faker->latitude(-90, 90),
+            'longitude' => $this->faker->longitude(-180, 180),
         ];
     }
 }
