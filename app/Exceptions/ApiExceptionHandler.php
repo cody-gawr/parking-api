@@ -6,6 +6,7 @@ use Throwable;
 use Illuminate\Http\Request;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
@@ -36,7 +37,7 @@ class ApiExceptionHandler extends BaseHandler
                     'success' => false,
                     'error'   => 'Unauthenticated',
                     'message' => $e->getMessage() ?: 'Authentication required.',
-                ], 401);
+                ], Response::HTTP_UNAUTHORIZED);
             }
 
             // 403 – Authenticated but not authorized
@@ -45,7 +46,15 @@ class ApiExceptionHandler extends BaseHandler
                     'success' => false,
                     'error'   => 'Forbidden',
                     'message' => $e->getMessage() ?: 'You do not have permission.',
-                ], 403);
+                ], Response::HTTP_FORBIDDEN);
+            }
+
+            if ($e instanceof ModelNotFoundException) {
+                return response()->json([
+                    'success' => false,
+                    'error'   => 'Not Found',
+                    'message' => $e->getMessage() ?: 'Resource not found.',
+                ], Response::HTTP_NOT_FOUND);
             }
 
             // 400 – Validation errors
@@ -54,7 +63,7 @@ class ApiExceptionHandler extends BaseHandler
                     'success'  => false,
                     'error'    => 'Validation Failed',
                     'messages' => $e->errors(),
-                ], 400);
+                ], Response::HTTP_BAD_REQUEST);
             }
 
             // Other HTTP exceptions (e.g., abort(400), abort(403))
@@ -73,7 +82,7 @@ class ApiExceptionHandler extends BaseHandler
                 'success' => false,
                 'error'   => 'Server Error',
                 'message' => 'Something went wrong.',
-            ], 500);
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
         // Non-API or HTML requests fallback

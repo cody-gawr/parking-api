@@ -5,17 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Repositories\UserRepository;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
-
-    public function test()
-    {
-        return response()->json(['message' => 'Hello World']);
-    }
-
     /**
      * Register a new user and issue a Sanctum token
      *
@@ -29,7 +24,7 @@ class AuthController extends Controller
             'user' => $user,
             'access_token' => $user->createToken('auth_token')->plainTextToken,
             'token_type' => 'Bearer',
-        ]);
+        ], Response::HTTP_CREATED);
     }
 
     /**
@@ -54,5 +49,19 @@ class AuthController extends Controller
             'access_token' => $token,
             'token_type' => 'Bearer',
         ]);
+    }
+
+    /**
+     * Revoke the current access token, logging the user out.
+     */
+    public function logout(Request $request)
+    {
+        // Delete only the token that was used to authenticate this request:
+        $request->user()->currentAccessToken()->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Logged out successfully.',
+        ], 200);
     }
 }

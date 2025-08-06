@@ -25,7 +25,7 @@ class ParkingService
     public function get(int $id): Parking
     {
         return $this->parkingRepo->find($id)
-            ?? throw new \Illuminate\Database\Eloquent\ModelNotFoundException("Parking #{$id} not found");
+            ?? throw new \Illuminate\Database\Eloquent\ModelNotFoundException("Parking #{$id} not found.");
     }
 
     public function create(array $data): Parking
