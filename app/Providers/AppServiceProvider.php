@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Exceptions\ApiExceptionHandler;
+use Illuminate\Contracts\Debug\ExceptionHandler as ExceptionHandlerContract;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,6 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        $this->app->singleton(
+            ExceptionHandlerContract::class,
+            ApiExceptionHandler::class
+        );
+
         if ($this->app->environment('local', 'testing')) {
             $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
         }

@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Parking;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseApiRequest;
 
-class UpdateParkingRequest extends FormRequest
+class UpdateParkingRequest extends BaseApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.

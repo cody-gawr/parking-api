@@ -2,11 +2,11 @@
 
 namespace App\Http\Requests\Parking;
 
+use App\Http\Requests\BaseApiRequest;
 use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class StoreParkingRequest extends FormRequest
+class StoreParkingRequest extends BaseApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,18 +29,5 @@ class StoreParkingRequest extends FormRequest
             'latitude'  => 'required|numeric|between:-90,90',
             'longitude' => 'required|numeric|between:-180,180',
         ];
-    }
-
-    /**
-     * Handle a failed validation attempt.
-     */
-    protected function failedValidation(Validator $validator): void
-    {
-        throw new HttpResponseException(
-            response()->json([
-                'message' => 'Validation failed',
-                'errors' => $validator->errors(),
-            ], 422)
-        );
     }
 }
