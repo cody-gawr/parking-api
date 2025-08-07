@@ -1,6 +1,6 @@
 # 🚗 Parking API (Laravel + Docker + Nginx + MySQL)
 
-This is a Laravel-based API for managing parking operations, containerized using Docker. It includes support for database migrations, seeders, and background job processing with Laravel Queues.
+This is a Laravel-based API for managing parking operations, containerized using Docker. It includes support for database migrations, seeders, background job processing with Laravel Queues, and automatic API documentation with Scribe.
 
 ---
 
@@ -17,7 +17,7 @@ This is a Laravel-based API for managing parking operations, containerized using
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/cody-gawr/parking-api.git
+git clone https://github.com/your-username/parking-api.git
 cd parking-api
 ```
 
@@ -88,7 +88,7 @@ docker compose exec app php artisan db:seed
 
 ---
 
-## 🧵 Run the Queue Worker
+## 🔄 Run the Queue Worker
 
 To process queued jobs, run the queue worker in a separate terminal:
 
@@ -97,6 +97,54 @@ docker compose exec app php artisan queue:work
 ```
 
 > 📌 Tip: You can also run `queue:work` in a Supervisor process for production environments.
+
+---
+
+## 📝 API Documentation with Scribe
+
+Laravel Scribe automatically generates API documentation from your routes, controllers, and annotations.
+
+### 1. Install Scribe
+
+Install as a development dependency:
+
+```bash
+docker compose exec app composer require knuckleswtf/scribe --dev
+```
+
+### 2. Publish Configuration & Customize
+
+Publish Scribe's config and views:
+
+```bash
+docker compose exec app php artisan vendor:publish --provider="Knuckles\Scribe\ScribeServiceProvider" --tag=scribe-config
+```
+
+This will create `config/scribe.php`. You can update:
+
+- `description` and `title` in the `scribe.php` config
+- `base_url` if your API is hosted elsewhere
+- `output_path`, which defaults to `public/docs`
+
+### 3. Generate Documentation
+
+Run the Scribe generator:
+
+```bash
+docker compose exec app php artisan scribe:generate
+```
+
+By default, the generated docs are placed in:
+
+- **HTML**: `public/docs/index.html`
+- **Postman Collection**: `public/docs/collections/parking-api.postman_collection.json`
+- **OpenAPI Spec**: `public/docs/openapi.yaml`
+
+You can view the HTML documentation at:
+
+```
+http://localhost/docs
+```
 
 ---
 
@@ -144,6 +192,7 @@ docker compose down -v
 parking-api/
 ├── app/
 ├── config/
+│   └── scribe.php       # Scribe configuration (after publishing)
 ├── database/
 │   ├── migrations/
 │   └── seeders/
@@ -151,6 +200,7 @@ parking-api/
 ├── nginx/
 │   └── default.conf
 ├── public/
+│   └── docs/           # Generated API docs
 ├── routes/
 ├── .env
 ├── Dockerfile
