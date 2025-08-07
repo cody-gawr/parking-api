@@ -140,10 +140,9 @@
 <aside>
     <strong>Base URL</strong>: <code>http://localhost</code>
 </aside>
-<pre><code>This documentation aims to provide all the information you need to work with our API.
-
-&lt;aside&gt;As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
-You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).&lt;/aside&gt;</code></pre>
+<p>This documentation provides all the information you need to interact with the <strong>Parking API</strong> built with Laravel.</p>
+<p>As you scroll, you’ll see code examples for using the Parking API in various programming languages in the dark area to the right (or inline on mobile).
+You can switch between languages using the tabs at the top right, or via the navigation menu on mobile.</p>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>

@@ -17,13 +17,13 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class AuthController extends Controller
 {
-     /**
-     * Register a new user and issue a Sanctum token.
-     *
-     * @bodyParam Request \App\Http\Requests\Auth\RegisterRequest
-     * @responseFile 201 docs/responses/auth/register-success.json
-     * @responseFile 400 docs/responses/auth/register-error.json
-     */
+    /**
+    * Register a new user and issue a Sanctum token.
+    *
+    * @bodyParam Request \App\Http\Requests\Auth\RegisterRequest
+    * @responseFile 201 docs/responses/auth/register-success.json
+    * @responseFile 400 docs/responses/auth/register-error.json
+    */
     public function register(RegisterRequest $request, UserRepository $userRepository)
     {
         $user = $userRepository->create($request->validated());
