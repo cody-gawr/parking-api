@@ -28,4 +28,39 @@ class StoreParkingRequest extends BaseApiRequest
             'longitude' => 'required|numeric|between:-180,180',
         ];
     }
+
+    /**
+     * Explicit request body metadata for Scribe.
+     *
+     * @return array<string, array<string, mixed>>
+     */
+    public static function bodyParameters(): array
+    {
+        return [
+            'name' => [
+                'description' => 'The name of the parking lot.',
+                'example'     => 'Central Parking',
+                'type'        => 'string',
+                'required'    => true,
+            ],
+            'address' => [
+                'description' => 'The address of the parking lot.',
+                'example'     => '123 Main St, Springfield',
+                'type'        => 'string',
+                'required'    => true,
+            ],
+            'latitude' => [
+                'description' => 'Latitude coordinate between -90 and 90.',
+                'example'     => 40.7128,
+                'type'        => 'number',
+                'required'    => true,
+            ],
+            'longitude' => [
+                'description' => 'Longitude coordinate between -180 and 180.',
+                'example'     => -74.0060,
+                'type'        => 'number',
+                'required'    => true,
+            ],
+        ];
+    }
 }

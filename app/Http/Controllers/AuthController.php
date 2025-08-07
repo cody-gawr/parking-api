@@ -9,12 +9,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * @group Authentication
+ * @authenticated
+ *
+ * Endpoints for registering, logging in, logging out and fetching the authenticated user.
+ */
 class AuthController extends Controller
 {
-    /**
-     * Register a new user and issue a Sanctum token
+     /**
+     * Register a new user and issue a Sanctum token.
      *
-     * POST api/auth/register
+     * @bodyParam Request \App\Http\Requests\Auth\RegisterRequest
+     * @responseFile 201 docs/responses/auth/register-success.json
+     * @responseFile 400 docs/responses/auth/register-error.json
      */
     public function register(RegisterRequest $request, UserRepository $userRepository)
     {
@@ -28,9 +36,12 @@ class AuthController extends Controller
     }
 
     /**
-     * Login a user and issue a Sanctum token
+     * Login and receive a Sanctum token.
      *
-     * POST api/auth/login
+     * @unauthenticated
+     * @bodyParam Request \App\Http\Requests\Auth\LoginRequest
+     * @responseFile 200 docs/responses/auth/login-success.json
+     * @responseFile 401 docs/responses/auth/login-error.json
      */
     public function login(LoginRequest $request)
     {
@@ -52,7 +63,10 @@ class AuthController extends Controller
     }
 
     /**
-     * Revoke the current access token, logging the user out.
+     * Logout (revoke the current token).
+     *
+     * @authenticated
+     * @responseFile 200 docs/responses/auth/logout-success.json
      */
     public function logout(Request $request)
     {

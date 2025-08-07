@@ -1,0 +1,7 @@
+{
+    "success": false,
+    "error": "Validation Failed",
+    "messages": {
+        "longitude": ["The longitude field is required."]
+    }
+}

@@ -28,4 +28,40 @@ class UpdateParkingRequest extends BaseApiRequest
             'longitude' => 'sometimes|required|numeric|between:-180,180'
         ];
     }
+
+    /**
+     * Explicit request body metadata for Scribe.
+     * Fields are optional; include only the ones you wish to update.
+     *
+     * @return array<string, array<string, mixed>>
+     */
+    public static function bodyParameters(): array
+    {
+        return [
+            'name' => [
+                'description' => 'New name for the parking lot (optional).',
+                'example'     => 'Updated Parking Name',
+                'type'        => 'string',
+                'required'    => false,
+            ],
+            'address' => [
+                'description' => 'New address for the parking lot (optional).',
+                'example'     => '456 Elm St, Springfield',
+                'type'        => 'string',
+                'required'    => false,
+            ],
+            'latitude' => [
+                'description' => 'New latitude coordinate (optional).',
+                'example'     => 40.7138,
+                'type'        => 'number',
+                'required'    => false,
+            ],
+            'longitude' => [
+                'description' => 'New longitude coordinate (optional).',
+                'example'     => -74.0055,
+                'type'        => 'number',
+                'required'    => false,
+            ],
+        ];
+    }
 }

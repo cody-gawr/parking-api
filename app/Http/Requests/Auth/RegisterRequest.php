@@ -27,4 +27,39 @@ class RegisterRequest extends BaseApiRequest
             'password' => 'required|string|min:8|confirmed',
         ];
     }
+
+    /**
+     * Explicit request body metadata for Scribe.
+     *
+     * @return array<string, array<string, mixed>>
+     */
+    public static function bodyParameters(): array
+    {
+        return [
+            'name' => [
+                'description' => 'Full name of the user.',
+                'example'     => 'Jane Doe',
+                'type'        => 'string',
+                'required'    => true,
+            ],
+            'email' => [
+                'description' => 'Valid, unique email address for the user.',
+                'example'     => 'jane.doe@example.com',
+                'type'        => 'string',
+                'required'    => true,
+            ],
+            'password' => [
+                'description' => 'Password (minimum 8 characters).',
+                'example'     => 'secretPass123',
+                'type'        => 'string',
+                'required'    => true,
+            ],
+            'password_confirmation' => [
+                'description' => 'Confirmation of the password; must match the `password` field.',
+                'example'     => 'secretPass123',
+                'type'        => 'string',
+                'required'    => true,
+            ],
+        ];
+    }
 }

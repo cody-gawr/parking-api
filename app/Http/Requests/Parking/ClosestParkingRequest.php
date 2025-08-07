@@ -26,4 +26,27 @@ class ClosestParkingRequest extends BaseApiRequest
             'longitude' => 'required|numeric|between:-180,180',
         ];
     }
+
+    /**
+     * Explicit request body metadata for Scribe.
+     *
+     * @return array<string, array<string, mixed>>
+     */
+    public static function bodyParameters(): array
+    {
+        return [
+            'latitude' => [
+                'description' => 'Latitude of the point to search from.',
+                'example'     => 40.7128,
+                'type'        => 'number',
+                'required'    => true,
+            ],
+            'longitude' => [
+                'description' => 'Longitude of the point to search from.',
+                'example'     => -74.0060,
+                'type'        => 'number',
+                'required'    => true,
+            ],
+        ];
+    }
 }

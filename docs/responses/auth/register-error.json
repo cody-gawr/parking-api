@@ -1,0 +1,8 @@
+{
+    "success": false,
+    "error": "Validation Failed",
+    "messages": {
+        "email": ["The email has already been taken."],
+        "password": ["The password field confirmation does not match."]
+    }
+}

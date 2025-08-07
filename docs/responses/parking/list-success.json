@@ -1,0 +1,119 @@
+[
+    {
+        "id": 1,
+        "name": "Abshire LLC Parking",
+        "address": "5166 Frami Manor Apt. 071",
+        "latitude": 4.82169,
+        "longitude": 61.785464,
+        "created_at": "2025-08-06T12:46:58.000000Z",
+        "updated_at": "2025-08-06T12:46:58.000000Z"
+    },
+    {
+        "id": 2,
+        "name": "Abernathy and Sons Parking",
+        "address": "3800 Clay Mountain",
+        "latitude": 55.621738,
+        "longitude": -175.364549,
+        "created_at": "2025-08-06T12:46:59.000000Z",
+        "updated_at": "2025-08-06T12:46:59.000000Z"
+    },
+    {
+        "id": 3,
+        "name": "Rolfson, Rau and Tillman Parking",
+        "address": "6457 Fermin Prairie Suite 511",
+        "latitude": -57.152625,
+        "longitude": 15.663286,
+        "created_at": "2025-08-06T12:46:59.000000Z",
+        "updated_at": "2025-08-06T12:46:59.000000Z"
+    },
+    {
+        "id": 4,
+        "name": "Lang-Kuphal Parking",
+        "address": "560 Morar Underpass",
+        "latitude": -20.578386,
+        "longitude": -116.938252,
+        "created_at": "2025-08-06T12:46:59.000000Z",
+        "updated_at": "2025-08-06T12:46:59.000000Z"
+    },
+    {
+        "id": 5,
+        "name": "Bayer Group Parking",
+        "address": "46208 Brekke Spring",
+        "latitude": -75.843874,
+        "longitude": -64.331612,
+        "created_at": "2025-08-06T12:46:59.000000Z",
+        "updated_at": "2025-08-06T12:46:59.000000Z"
+    },
+    {
+        "id": 6,
+        "name": "Weimann PLC Parking",
+        "address": "291 Brianne Land",
+        "latitude": 85.073311,
+        "longitude": 145.627981,
+        "created_at": "2025-08-06T12:46:59.000000Z",
+        "updated_at": "2025-08-06T12:46:59.000000Z"
+    },
+    {
+        "id": 7,
+        "name": "Grant Ltd Parking",
+        "address": "1061 Birdie Rest",
+        "latitude": -79.166444,
+        "longitude": -28.811028,
+        "created_at": "2025-08-06T12:47:00.000000Z",
+        "updated_at": "2025-08-06T12:47:00.000000Z"
+    },
+    {
+        "id": 8,
+        "name": "Bogan Inc Parking",
+        "address": "448 Salma Dale Apt. 878",
+        "latitude": -76.822571,
+        "longitude": -144.395346,
+        "created_at": "2025-08-06T12:47:00.000000Z",
+        "updated_at": "2025-08-06T12:47:00.000000Z"
+    },
+    {
+        "id": 9,
+        "name": "Roob-Schiller Parking",
+        "address": "3633 Matteo Walk",
+        "latitude": 53.650758,
+        "longitude": 109.641045,
+        "created_at": "2025-08-06T12:47:00.000000Z",
+        "updated_at": "2025-08-06T12:47:00.000000Z"
+    },
+    {
+        "id": 10,
+        "name": "Spinka LLC Parking",
+        "address": "2863 Cummings Islands Suite 055",
+        "latitude": 68.279668,
+        "longitude": 151.279583,
+        "created_at": "2025-08-06T12:47:00.000000Z",
+        "updated_at": "2025-08-06T12:47:00.000000Z"
+    },
+    {
+        "id": 11,
+        "name": "Nearby Parking A",
+        "address": "100 Test St",
+        "latitude": 40.7153,
+        "longitude": -74.0035,
+        "created_at": "2025-08-06T12:47:00.000000Z",
+        "updated_at": "2025-08-06T12:47:00.000000Z"
+    },
+    {
+        "id": 12,
+        "name": "Nearby Parking B",
+        "address": "200 Test Ave",
+        "latitude": 40.7093,
+        "longitude": -74.003,
+        "created_at": "2025-08-06T12:47:01.000000Z",
+        "updated_at": "2025-08-06T12:47:01.000000Z"
+    },
+    {
+        "id": 13,
+        "name": "Distant Parking",
+        "address": "300 Faraway Rd",
+        "latitude": 40.7228,
+        "longitude": -73.996,
+        "created_at": "2025-08-06T12:47:01.000000Z",
+        "updated_at": "2025-08-06T12:47:01.000000Z"
+    }
+]
