@@ -102,39 +102,13 @@ docker compose exec app php artisan queue:work
 
 ## 📝 API Documentation with Scribe
 
-Laravel Scribe automatically generates API documentation from your routes, controllers, and annotations.
-
-### 1. Install Scribe
-
-Install as a development dependency:
-
-```bash
-docker compose exec app composer require knuckleswtf/scribe --dev
-```
-
-### 2. Publish Configuration & Customize
-
-Publish Scribe's config and views:
-
-```bash
-docker compose exec app php artisan vendor:publish --provider="Knuckles\Scribe\ScribeServiceProvider" --tag=scribe-config
-```
-
-This will create `config/scribe.php`. You can update:
-
-- `description` and `title` in the `scribe.php` config
-- `base_url` if your API is hosted elsewhere
-- `output_path`, which defaults to `public/docs`
-
-### 3. Generate Documentation
-
-Run the Scribe generator:
+To generate the API documentation, run:
 
 ```bash
 docker compose exec app php artisan scribe:generate
 ```
 
-By default, the generated docs are placed in:
+The generated documentation will be available in:
 
 - **HTML**: `public/docs/index.html`
 - **Postman Collection**: `public/docs/collections/parking-api.postman_collection.json`
@@ -150,6 +124,12 @@ http://localhost/docs
 
 ## 🧪 Useful Commands
 
+### Generate API Docs
+
+```bash
+docker compose exec app php artisan scribe:generate
+```
+
 ### Run Tests
 
 ```bash
@@ -164,19 +144,15 @@ docker compose exec app php artisan tinker
 
 ### View Laravel Logs
 
-```bash
+````bash
 docker compose exec app tail -f storage/logs/laravel.log
-```
-
----
-
-## 🧼 Stop and Clean Up
+```## 🧼 Stop and Clean Up
 
 To stop all containers:
 
 ```bash
 docker compose down
-```
+````
 
 To stop and remove containers, volumes, and networks:
 
